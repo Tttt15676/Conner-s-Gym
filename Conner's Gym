@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GymPro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Navbar -->
+<nav class="flex justify-between p-6">
+  <h1 class="text-2xl font-bold">GymPro</h1>
+  <div class="space-x-6">
+    <a href="#" class="hover:text-blue-400">Home</a>
+    <a href="#pricing" class="hover:text-blue-400">Pricing</a>
+    <a href="#" class="hover:text-blue-400">Login</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="text-center py-20 px-6">
+  <h2 class="text-5xl font-bold mb-6">Build Your Best Body</h2>
+  <p class="text-gray-400 mb-8">Join thousands transforming their lives.</p>
+  <a href="#pricing" class="bg-blue-500 px-6 py-3 rounded-lg hover:bg-blue-600">
+    Get Started
+  </a>
+</section>
+
+<section id="pricing" class="py-20 bg-gray-800 text-center">
+  <h2 class="text-4xl font-bold mb-12">Membership Plans</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 px-6">
+
+    <!-- Basic Plan -->
+    <div class="bg-gray-900 p-8 rounded-xl shadow">
+      <h3 class="text-2xl font-bold mb-4">Basic</h3>
+      <p class="text-3xl mb-6">$19/mo</p>
+      <ul class="mb-6 text-gray-400">
+        <li>Gym Access</li>
+        <li>1 Class / Week</li>
+      </ul>
+      <button onclick="selectPlan('Basic')" 
+        class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
+        Choose Plan
+      </button>
+    </div>
+
+    <!-- Pro Plan -->
+    <div class="bg-gray-900 p-8 rounded-xl shadow border border-blue-500">
+      <h3 class="text-2xl font-bold mb-4">Pro</h3>
+      <p class="text-3xl mb-6">$39/mo</p>
+      <ul class="mb-6 text-gray-400">
+        <li>All Classes</li>
+        <li>Trainer Support</li>
+      </ul>
+      <button onclick="selectPlan('Pro')" 
+        class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
+        Choose Plan
+      </button>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="bg-gray-900 p-8 rounded-xl shadow">
+      <h3 class="text-2xl font-bold mb-4">Premium</h3>
+      <p class="text-3xl mb-6">$59/mo</p>
+      <ul class="mb-6 text-gray-400">
+        <li>24/7 Access</li>
+        <li>Personal Trainer</li>
+      </ul>
+      <button onclick="selectPlan('Premium')" 
+        class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
+        Choose Plan
+      </button>
+    </div>
+
+  </div>
+</section>
