@@ -23,6 +23,73 @@
   </button>
 </div>
 
+  <!-- PROGRESS TRACKER -->
+<section class="mt-10 max-w-3xl">
+  <h2 class="text-2xl font-bold mb-6">Your Progress</h2>
+
+  <!-- Stats Cards -->
+  <div class="grid grid-cols-3 gap-4 mb-8">
+    <div class="bg-gray-800 p-4 rounded-xl text-center">
+      <p class="text-gray-400">Workouts</p>
+      <h3 id="workouts" class="text-2xl font-bold">0</h3>
+    </div>
+
+    <div class="bg-gray-800 p-4 rounded-xl text-center">
+      <p class="text-gray-400">Streak</p>
+      <h3 id="streak" class="text-2xl font-bold">0</h3>
+    </div>
+
+    <div class="bg-gray-800 p-4 rounded-xl text-center">
+      <p class="text-gray-400">Weight Lost</p>
+      <h3 id="weightLost" class="text-2xl font-bold">0 lbs</h3>
+    </div>
+  </div>
+
+  <!-- Progress Bars -->
+  <div class="space-y-6">
+
+    <!-- Strength -->
+    <div>
+      <div class="flex justify-between mb-1">
+        <span>Strength</span>
+        <span id="strengthValue">40%</span>
+      </div>
+      <div class="w-full bg-gray-700 rounded-full h-3">
+        <div id="strengthBar" class="bg-blue-500 h-3 rounded-full" style="width: 40%"></div>
+      </div>
+    </div>
+
+    <!-- Endurance -->
+    <div>
+      <div class="flex justify-between mb-1">
+        <span>Endurance</span>
+        <span id="enduranceValue">30%</span>
+      </div>
+      <div class="w-full bg-gray-700 rounded-full h-3">
+        <div id="enduranceBar" class="bg-orange-500 h-3 rounded-full" style="width: 30%"></div>
+      </div>
+    </div>
+
+    <!-- Consistency -->
+    <div>
+      <div class="flex justify-between mb-1">
+        <span>Consistency</span>
+        <span id="consistencyValue">50%</span>
+      </div>
+      <div class="w-full bg-gray-700 rounded-full h-3">
+        <div id="consistencyBar" class="bg-green-500 h-3 rounded-full" style="width: 50%"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Action Button -->
+  <button onclick="logWorkout()" 
+    class="mt-8 bg-blue-500 px-6 py-2 rounded hover:bg-blue-600">
+    Log Workout
+  </button>
+  </section>
+
 <script>
 // Redirect if not logged in
 const user = JSON.parse(localStorage.getItem("user"));
@@ -45,5 +112,46 @@ function logout() {
 }
 </script>
 
+<script>
+let data = JSON.parse(localStorage.getItem("progress")) || {
+  workouts: 0,
+  streak: 0,
+  weightLost: 0,
+  strength: 40,
+  endurance: 30,
+  consistency: 50
+};
+
+function updateUI() {
+  document.getElementById("workouts").innerText = data.workouts;
+  document.getElementById("streak").innerText = data.streak;
+  document.getElementById("weightLost").innerText = data.weightLost + " lbs";
+
+  document.getElementById("strengthBar").style.width = data.strength + "%";
+  document.getElementById("strengthValue").innerText = data.strength + "%";
+
+  document.getElementById("enduranceBar").style.width = data.endurance + "%";
+  document.getElementById("enduranceValue").innerText = data.endurance + "%";
+
+  document.getElementById("consistencyBar").style.width = data.consistency + "%";
+  document.getElementById("consistencyValue").innerText = data.consistency + "%";
+}
+
+function logWorkout() {
+  data.workouts += 1;
+  data.streak += 1;
+  data.weightLost += 1;
+
+  data.strength = Math.min(100, data.strength + 2);
+  data.endurance = Math.min(100, data.endurance + 2);
+  data.consistency = Math.min(100, data.consistency + 3);
+
+  localStorage.setItem("progress", JSON.stringify(data));
+  updateUI();
+}
+
+updateUI();
+  </script>
+  
 </body>
   </html>
