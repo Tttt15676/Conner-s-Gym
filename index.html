@@ -1,77 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GymPro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PulseFit Gym</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb", // blue
+            accent: "#f97316",  // orange
+          }
+        }
+      }
+    }
+  </script>
 </head>
+
 <body class="bg-gray-900 text-white">
 
-<!-- Navbar -->
-<nav class="flex justify-between p-6">
-  <h1 class="text-2xl font-bold">GymPro</h1>
-  <div class="space-x-6">
-    <a href="#" class="hover:text-blue-400">Home</a>
-    <a href="#pricing" class="hover:text-blue-400">Pricing</a>
-    <a href="#" class="hover:text-blue-400">Login</a>
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center p-6">
+  <h1 class="text-2xl font-bold text-accent">PulseFit</h1>
+  <div class="space-x-6 hidden md:block">
+    <a href="#" class="hover:text-accent">Home</a>
+    <a href="#pricing" class="hover:text-accent">Pricing</a>
+    <a href="#faq" class="hover:text-accent">FAQ</a>
   </div>
+  <button class="bg-accent px-4 py-2 rounded hover:bg-orange-500">
+    Join Now
+  </button>
 </nav>
 
-<!-- Hero -->
-<section class="text-center py-20 px-6">
-  <h2 class="text-5xl font-bold mb-6">Build Your Best Body</h2>
-  <p class="text-gray-400 mb-8">Join thousands transforming their lives.</p>
-  <a href="#pricing" class="bg-blue-500 px-6 py-3 rounded-lg hover:bg-blue-600">
-    Get Started
+<!-- HERO -->
+<section class="text-center py-24 px-6">
+  <h2 class="text-5xl font-bold mb-6 leading-tight">
+    Transform Your Body <br/>
+    <span class="text-accent">Build Your Power</span>
+  </h2>
+  <p class="text-gray-400 mb-8">
+    Premium fitness experience with expert trainers and cutting-edge equipment.
+  </p>
+  <a href="#pricing" class="bg-primary px-6 py-3 rounded-lg hover:bg-blue-700">
+    Start Membership
   </a>
 </section>
 
-<section id="pricing" class="py-20 bg-gray-800 text-center">
+<!-- BENEFITS -->
+<section class="py-20 bg-gray-800 text-center px-6">
+  <h2 class="text-4xl font-bold mb-12">Why Choose Us</h2>
+
+  <div class="grid md:grid-cols-4 gap-8">
+    <div>
+      <h3 class="text-xl font-bold mb-2 text-accent">Modern Equipment</h3>
+      <p class="text-gray-400">Train with top-tier machines.</p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-bold mb-2 text-accent">Expert Trainers</h3>
+      <p class="text-gray-400">Guidance from professionals.</p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-bold mb-2 text-accent">24/7 Access</h3>
+      <p class="text-gray-400">Workout anytime.</p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-bold mb-2 text-accent">Community</h3>
+      <p class="text-gray-400">Stay motivated together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 text-center px-6">
+  <h2 class="text-4xl font-bold mb-12">What Our Members Say</h2>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <p class="text-gray-300 mb-4">“Best decision I ever made.”</p>
+      <h4 class="text-accent font-bold">- Alex</h4>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <p class="text-gray-300 mb-4">“I’ve never felt stronger.”</p>
+      <h4 class="text-accent font-bold">- Jordan</h4>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <p class="text-gray-300 mb-4">“Amazing trainers and vibe.”</p>
+      <h4 class="text-accent font-bold">- Taylor</h4>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-20 bg-gray-800 text-center px-6">
   <h2 class="text-4xl font-bold mb-12">Membership Plans</h2>
 
-  <div class="grid md:grid-cols-3 gap-8 px-6">
+  <div class="grid md:grid-cols-3 gap-8">
 
-    <!-- Basic Plan -->
-    <div class="bg-gray-900 p-8 rounded-xl shadow">
+    <!-- Basic -->
+    <div class="bg-gray-900 p-8 rounded-xl">
       <h3 class="text-2xl font-bold mb-4">Basic</h3>
       <p class="text-3xl mb-6">$19/mo</p>
-      <ul class="mb-6 text-gray-400">
+      <ul class="text-gray-400 mb-6">
         <li>Gym Access</li>
         <li>1 Class / Week</li>
       </ul>
-      <button onclick="selectPlan('Basic')" 
-        class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
-        Choose Plan
+      <button class="bg-primary px-4 py-2 rounded hover:bg-blue-700">
+        Choose
       </button>
     </div>
 
-    <!-- Pro Plan -->
-    <div class="bg-gray-900 p-8 rounded-xl shadow border border-blue-500">
-      <h3 class="text-2xl font-bold mb-4">Pro</h3>
+    <!-- Pro -->
+    <div class="bg-gray-900 p-8 rounded-xl border border-accent scale-105">
+      <h3 class="text-2xl font-bold mb-4 text-accent">Pro</h3>
       <p class="text-3xl mb-6">$39/mo</p>
-      <ul class="mb-6 text-gray-400">
+      <ul class="text-gray-400 mb-6">
         <li>All Classes</li>
         <li>Trainer Support</li>
       </ul>
-      <button onclick="selectPlan('Pro')" 
-        class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
-        Choose Plan
+      <button class="bg-accent px-4 py-2 rounded hover:bg-orange-500">
+        Most Popular
       </button>
     </div>
 
-    <!-- Premium Plan -->
-    <div class="bg-gray-900 p-8 rounded-xl shadow">
+    <!-- Premium -->
+    <div class="bg-gray-900 p-8 rounded-xl">
       <h3 class="text-2xl font-bold mb-4">Premium</h3>
       <p class="text-3xl mb-6">$59/mo</p>
-      <ul class="mb-6 text-gray-400">
+      <ul class="text-gray-400 mb-6">
         <li>24/7 Access</li>
         <li>Personal Trainer</li>
       </ul>
-      <button onclick="selectPlan('Premium')" 
-        class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
-        Choose Plan
+      <button class="bg-primary px-4 py-2 rounded hover:bg-blue-700">
+        Choose
       </button>
     </div>
 
   </div>
 </section>
+
+<!-- CLASSES -->
+<section class="py-20 text-center px-6">
+  <h2 class="text-4xl font-bold mb-12">Our Classes</h2>
+
+  <div class="grid md:grid-cols-4 gap-6">
+    <div class="bg-gray-800 p-6 rounded-xl">HIIT</div>
+    <div class="bg-gray-800 p-6 rounded-xl">Yoga</div>
+    <div class="bg-gray-800 p-6 rounded-xl">Strength</div>
+    <div class="bg-gray-800 p-6 rounded-xl">Cardio</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-primary text-center">
+  <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+  <button class="bg-accent px-6 py-3 rounded-lg hover:bg-orange-500">
+    Join Now
+  </button>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 px-6 max-w-3xl mx-auto">
+  <h2 class="text-4xl font-bold mb-12 text-center">FAQ</h2>
+
+  <div class="space-y-6">
+
+    <div>
+      <h3 class="font-bold text-accent">Can I cancel anytime?</h3>
+      <p class="text-gray-400">Yes, no long-term contracts.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-accent">Do you offer free trials?</h3>
+      <p class="text-gray-400">Yes, 7-day free trial available.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-accent">Are trainers included?</h3>
+      <p class="text-gray-400">Included in Pro and Premium plans.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-800 p-6 text-center text-gray-400">
+  <p>© 2026 PulseFit Gym. All rights reserved.</p>
+</footer>
+
+</body>
+    </html>
