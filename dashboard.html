@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white p-6">
+
+<h1 class="text-3xl mb-6">Dashboard</h1>
+
+<div class="bg-gray-800 p-6 rounded-xl max-w-md">
+  <h2 class="text-xl mb-4">Membership Info</h2>
+
+  <p><strong>Name:</strong> <span id="name"></span></p>
+  <p><strong>Plan:</strong> <span id="plan"></span></p>
+  <p><strong>Renewal Date:</strong> <span id="renewal"></span></p>
+
+  <button onclick="logout()" 
+    class="mt-6 bg-red-500 px-4 py-2 rounded hover:bg-red-600">
+    Logout
+  </button>
+</div>
+
+<script>
+// Redirect if not logged in
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) {
+  window.location.href = "login.html";
+}
+
+// Load dashboard data
+fetch("http://localhost:3000/dashboard")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("name").innerText = data.name;
+    document.getElementById("plan").innerText = data.plan;
+    document.getElementById("renewal").innerText = data.renewal;
+  });
+
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+  </html>
