@@ -36,17 +36,49 @@
 </nav>
 
 <!-- HERO -->
-<section class="text-center py-24 px-6">
-  <h2 class="text-5xl font-bold mb-6 leading-tight">
-    Transform Your Body <br/>
-    <span class="text-accent">Build Your Power</span>
-  </h2>
-  <p class="text-gray-400 mb-8">
-    Premium fitness experience with expert trainers and cutting-edge equipment.
-  </p>
-  <a href="#pricing" class="bg-primary px-6 py-3 rounded-lg hover:bg-blue-700">
-    Start Membership
-  </a>
+<!-- HERO WITH IMAGE + CAROUSEL -->
+<section class="relative h-[75vh] overflow-hidden">
+
+  <!-- CAROUSEL IMAGES -->
+  <div id="carousel" class="absolute inset-0">
+
+    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61"
+      class="absolute w-full h-full object-cover opacity-100 transition-opacity duration-1000">
+
+    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
+      class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+
+    <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1"
+      class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+
+  </div>
+
+  <!-- DARK OVERLAY -->
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+  <!-- CONTENT -->
+  <div class="relative z-10 flex flex-col justify-center items-center text-center h-full px-6">
+
+    <h2 class="text-5xl font-bold mb-6 leading-tight">
+      Build Elite Strength <br/>
+      <span class="text-accent">Become Unstoppable</span>
+    </h2>
+
+    <p class="text-gray-300 max-w-2xl mb-8">
+      Train like an athlete with world-class equipment, elite coaching, and a high-performance environment built for serious results.
+    </p>
+
+    <div class="flex gap-4 flex-wrap justify-center">
+      <a href="#pricing" class="bg-accent px-6 py-3 rounded-lg hover:bg-orange-500">
+        Become a Member
+      </a>
+
+      <a href="about.html" class="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black">
+        Learn More
+      </a>
+    </div>
+
+  </div>
 </section>
 
 <!-- BENEFITS -->
@@ -194,6 +226,21 @@
 <footer class="bg-gray-800 p-6 text-center text-gray-400">
   <p>© 2026 PulseFit Gym. All rights reserved.</p>
 </footer>
+
+  <script>
+let currentSlide = 0;
+const slides = document.querySelectorAll("#carousel img");
+
+setInterval(() => {
+  slides[currentSlide].classList.remove("opacity-100");
+  slides[currentSlide].classList.add("opacity-0");
+
+  currentSlide = (currentSlide + 1) % slides.length;
+
+  slides[currentSlide].classList.remove("opacity-0");
+  slides[currentSlide].classList.add("opacity-100");
+}, 4000);
+  </script>
 
 <script>
 async function buyPlan(plan) {
