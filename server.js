@@ -29,6 +29,44 @@ const User = mongoose.model("User", {
   }
 });
 
+const Stripe = require("stripe");
+const stripe = Stripe("YOUR_STRIPE_SECRET_KEY");
+
+app.post("/create-checkout-session", async (req, res) => {
+  const { plan } = req.body;
+
+  let price = 0;
+
+  if (plan === "Basic") price = 1900;
+  if (plan === "Pro") price = 3900;
+  if (plan === "Premium") price = 5900;
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: `${plan} Membership`
+            },
+            unit_amount: price
+          },
+          quantity: 1
+        }
+      ],
+      success_url: "http://localhost:3000/success.html",
+      cancel_url: "http://localhost:3000/cancel.html"
+    });
+
+    res.json({ url: session.url });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 // ======================
 // SIGN UP
