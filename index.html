@@ -195,5 +195,23 @@
   <p>© 2026 PulseFit Gym. All rights reserved.</p>
 </footer>
 
+<script>
+async function buyPlan(plan) {
+  const res = await fetch("http://localhost:3000/create-checkout-session", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ plan })
+  });
+
+  const data = await res.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  }
+}
+    </script>
+  
 </body>
     </html>
