@@ -18,6 +18,71 @@
       }
     }
   </script>
+  <style>
+/* NAV LINKS */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover glow */
+.nav-link:hover {
+  color: #f97316;
+  text-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+}
+
+/* Click / active glow */
+.nav-link:active {
+  transform: scale(0.95);
+  text-shadow: 0 0 12px rgba(249, 115, 22, 1);
+}
+
+/* LOGIN BUTTON GLOW */
+.nav-button {
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 1);
+}
+  </style><style>
+/* NAV LINKS */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover glow */
+.nav-link:hover {
+  color: #f97316;
+  text-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+}
+
+/* Click / active glow */
+.nav-link:active {
+  transform: scale(0.95);
+  text-shadow: 0 0 12px rgba(249, 115, 22, 1);
+}
+
+/* LOGIN BUTTON GLOW */
+.nav-button {
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 1);
+}
+  </style>
 </head>
 
   <!-- MEMBERSHIP MODAL -->
@@ -65,16 +130,30 @@
 <body class="bg-gray-900 text-white">
 
 <!-- NAVBAR -->
-<nav class="flex justify-between items-center p-6">
-  <h1 class="text-2xl font-bold text-accent">PulseFit</h1>
-  <div class="space-x-6 hidden md:block">
-    <a href="#" class="hover:text-accent">Home</a>
-    <a href="#pricing" class="hover:text-accent">Pricing</a>
-    <a href="#faq" class="hover:text-accent">FAQ</a>
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+
+  <!-- LOGO -->
+  <h1 class="text-2xl font-bold text-accent">
+    Connor's Gym
+  </h1>
+
+  <!-- NAV LINKS -->
+  <div class="space-x-6 hidden md:flex">
+
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="classes.html" class="nav-link">Classes</a>
+    <a href="subscription.html" class="nav-link">Subscription</a>
+    <a href="stories.html" class="nav-link">Stories</a>
+
   </div>
-  <button class="bg-accent px-4 py-2 rounded hover:bg-orange-500">
-    <a href="login.html" class="hover:text-accent">Login</a>
-  </button>
+
+  <!-- LOGIN BUTTON -->
+  <a href="auth.html"
+    class="bg-accent px-4 py-2 rounded-lg nav-button">
+    Login
+  </a>
+
 </nav>
 
 <!-- HERO -->
