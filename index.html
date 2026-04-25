@@ -20,6 +20,48 @@
   </script>
 </head>
 
+  <!-- MEMBERSHIP MODAL -->
+<div id="membershipModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+
+  <div class="bg-gray-900 p-8 rounded-xl max-w-4xl w-full relative">
+
+    <!-- CLOSE BUTTON -->
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-xl">
+      ✕
+    </button>
+
+    <h2 class="text-3xl font-bold mb-8 text-center">Choose Your Plan</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="bg-gray-800 p-6 rounded-xl text-center">
+        <h3 class="text-xl font-bold mb-2">Basic</h3>
+        <p class="mb-4">$19/mo</p>
+        <button onclick="buyPlan('Basic')" class="bg-blue-500 px-4 py-2 rounded">
+          Select
+        </button>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl text-center border border-accent">
+        <h3 class="text-xl font-bold mb-2 text-accent">Pro</h3>
+        <p class="mb-4">$39/mo</p>
+        <button onclick="buyPlan('Pro')" class="bg-orange-500 px-4 py-2 rounded">
+          Select
+        </button>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl text-center">
+        <h3 class="text-xl font-bold mb-2">Premium</h3>
+        <p class="mb-4">$59/mo</p>
+        <button onclick="buyPlan('Premium')" class="bg-blue-500 px-4 py-2 rounded">
+          Select
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 <body class="bg-gray-900 text-white">
 
 <!-- NAVBAR -->
@@ -211,47 +253,6 @@
 
   <div class="grid md:grid-cols-3 gap-8">
 
-    <!-- Basic -->
-    <div class="bg-gray-900 p-8 rounded-xl">
-      <h3 class="text-2xl font-bold mb-4">Basic</h3>
-      <p class="text-3xl mb-6">$19/mo</p>
-      <ul class="text-gray-400 mb-6">
-        <li>Gym Access</li>
-        <li>1 Class / Week</li>
-      </ul>
-      <button onclick="buyPlan('Basic')" class="bg-blue-500 px-4 py-2 rounded">
-  Choose Basic
-      </button>
-    </div>
-
-    <!-- Pro -->
-    <div class="bg-gray-900 p-8 rounded-xl border border-accent scale-105">
-      <h3 class="text-2xl font-bold mb-4 text-accent">Pro</h3>
-      <p class="text-3xl mb-6">$39/mo</p>
-      <ul class="text-gray-400 mb-6">
-        <li>All Classes</li>
-        <li>Trainer Support</li>
-      </ul>
-      <button onclick="buyPlan('Pro')" class="bg-orange-500 px-4 py-2 rounded">
-  Choose Pro
-      </button>
-    </div>
-
-    <!-- Premium -->
-    <div class="bg-gray-900 p-8 rounded-xl">
-      <h3 class="text-2xl font-bold mb-4">Premium</h3>
-      <p class="text-3xl mb-6">$59/mo</p>
-      <ul class="text-gray-400 mb-6">
-        <li>24/7 Access</li>
-        <li>Personal Trainer</li>
-      </ul>
-      <button onclick="buyPlan('Premium')" class="bg-blue-500 px-4 py-2 rounded">
-  Choose Premium
-      </button>
-    </div>
-
-  </div>
-</section>
 
 <!-- CLASSES -->
 <section class="py-20 text-center px-6">
@@ -332,6 +333,18 @@ async function buyPlan(plan) {
   if (data.url) {
     window.location.href = data.url;
   }
+}
+    </script>
+
+    <script>
+function openModal() {
+  document.getElementById("membershipModal").classList.remove("hidden");
+  document.getElementById("membershipModal").classList.add("flex");
+}
+
+function closeModal() {
+  document.getElementById("membershipModal").classList.add("hidden");
+  document.getElementById("membershipModal").classList.remove("flex");
 }
     </script>
   
