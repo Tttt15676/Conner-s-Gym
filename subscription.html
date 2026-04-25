@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Membership</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white p-10">
+
+<h1 class="text-4xl font-bold mb-8">Your Membership</h1>
+
+<div class="bg-gray-800 p-6 rounded-xl max-w-md">
+
+  <p class="mb-4">Plan: <span id="plan">Loading...</span></p>
+  <p class="mb-4">Status: <span class="text-green-400">Active</span></p>
+
+  <button onclick="cancelPlan()" 
+    class="bg-red-500 px-4 py-2 rounded mb-4">
+    Cancel Membership
+  </button>
+
+  <button onclick="openModal()" 
+    class="bg-blue-500 px-4 py-2 rounded">
+    Change Plan
+  </button>
+
+</div>
+
+<script>
+const plan = localStorage.getItem("selectedPlan") || "None";
+document.getElementById("plan").innerText = plan;
+
+function cancelPlan() {
+  localStorage.removeItem("selectedPlan");
+  document.getElementById("plan").innerText = "None";
+}
+</script>
+
+</body>
+</html>
