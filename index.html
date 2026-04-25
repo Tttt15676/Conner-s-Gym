@@ -266,11 +266,47 @@
 </section>
 
 <!-- CTA -->
-<section class="py-20 bg-primary text-center">
-  <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-  <a onclick="openModal()" class="bg-primary px-6 py-3 rounded-lg cursor-pointer">
-  Join Now
-  </a>
+<!-- CTA SECTION (IMPROVED) -->
+<section class="py-24 px-6 relative">
+
+  <!-- BACKGROUND GRADIENT -->
+  <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"></div>
+
+  <!-- SUBTLE GLOW -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15),transparent_70%)]"></div>
+
+  <!-- CONTENT -->
+  <div class="relative text-center max-w-3xl mx-auto">
+
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Ready to Elevate Your Training?
+    </h2>
+
+    <p class="text-gray-400 mb-10 text-lg">
+      Take the next step toward building strength, confidence, and a powerful physique.
+      Your transformation starts now.
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="flex justify-center gap-4 flex-wrap">
+
+      <!-- PRIMARY CTA -->
+      <button onclick="openModal()"
+        class="bg-accent px-8 py-3 rounded-lg font-semibold 
+        hover:bg-orange-500 transition duration-300 shadow-lg shadow-orange-500/20">
+        Become a Member
+      </button>
+
+      <!-- SECONDARY CTA -->
+      <a href="classes.html"
+        class="border border-gray-600 px-8 py-3 rounded-lg 
+        hover:border-white hover:text-white transition duration-300">
+        Explore Classes
+      </a>
+
+    </div>
+
+  </div>
 </section>
 
 <!-- FAQ -->
