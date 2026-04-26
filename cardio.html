@@ -1,45 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>HIIT Training</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cardio Blast - Connor's Gym</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            accent: "#fb923c",
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900 text-white px-6 py-12 max-w-4xl mx-auto">
+<body class="bg-gray-950 text-white">
 
-<a href="classes.html" class="text-accent underline">← Back to Classes</a>
+<!-- NAV -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
 
-<h1 class="text-4xl font-bold my-6">HIIT Training</h1>
+  <div class="space-x-6 hidden md:flex">
+    <a href="index.html">Home</a>
+    <a href="classes.html" class="text-accent">Classes</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="stories.html">Stories</a>
+  </div>
 
-<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
-  class="w-full h-96 object-cover rounded-xl mb-8">
+  <a href="auth.html" class="bg-accent px-4 py-2 rounded-lg">Login</a>
+</nav>
 
-<p class="text-gray-300 mb-6">
-HIIT (High-Intensity Interval Training) is designed to push your limits with short bursts of intense exercise followed by recovery periods.
-</p>
+<!-- HERO -->
+<section class="relative h-[70vh] flex items-center justify-center text-center px-6">
 
-<p class="text-gray-300 mb-6">
-This class helps burn fat quickly, improve cardiovascular health, and build endurance.
-It’s perfect for individuals looking to maximize results in a short amount of time.
-</p>
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1546484959-f9a6c7dcb3c6"
+      class="w-full h-full object-cover opacity-40">
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
 
-<p class="text-gray-300 mb-10">
-Whether you're new or experienced, HIIT adapts to your level while constantly challenging you to improve.
-</p>
+  <div class="relative z-10 max-w-3xl">
+    <h1 class="text-5xl font-bold mb-6">
+      Cardio Blast
+    </h1>
+
+    <p class="text-gray-300 text-lg">
+      High-energy conditioning designed to improve endurance, burn calories, and push your cardiovascular limits.
+    </p>
+  </div>
+
+</section>
+
+<!-- WHAT IS CARDIO -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-6 text-accent">What is Cardio Blast?</h2>
+
+  <p class="text-gray-300 leading-relaxed mb-6">
+    Cardio Blast is a structured conditioning program focused on improving heart health, stamina, and full-body endurance.
+    It combines dynamic movement, interval training, and sustained effort to maximize calorie burn and performance.
+  </p>
+
+  <p class="text-gray-300 leading-relaxed">
+    At Connor’s Gym, our cardio classes are built to challenge every fitness level while keeping training engaging, fast-paced,
+    and results-driven.
+  </p>
+
+</section>
+
+<!-- BENEFITS -->
+<section class="py-20 bg-gray-900 px-6">
+
+  <h2 class="text-3xl font-bold text-center mb-12">Why Members Love Cardio Blast</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Improved Endurance</h3>
+      <p class="text-gray-400">
+        Build stamina so you can perform longer and recover faster in all types of training.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">High Calorie Burn</h3>
+      <p class="text-gray-400">
+        Burn calories efficiently with structured interval-based movement training.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Heart Health</h3>
+      <p class="text-gray-400">
+        Strengthen cardiovascular function and improve overall health and longevity.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-8">What You Get in Cardio Blast</h2>
+
+  <ul class="space-y-4 text-gray-300">
+    <li>✔ Guided high-energy group sessions</li>
+    <li>✔ Interval-based cardio circuits</li>
+    <li>✔ Treadmill, rowing, and bodyweight conditioning</li>
+    <li>✔ Fat-burning structured routines</li>
+    <li>✔ Scalable intensity for all levels</li>
+    <li>✔ Motivation-driven group environment</li>
+  </ul>
+
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="py-20 bg-gray-900 px-6 text-center">
+
+  <h2 class="text-3xl font-bold mb-10">Member Results</h2>
+
+  <p class="text-gray-400 max-w-2xl mx-auto">
+    “Cardio Blast completely changed my stamina. I can train longer, recover faster, and I’ve never felt more fit in my life.”
+  </p>
+
+  <p class="mt-4 text-accent font-bold">— Connor’s Gym Member</p>
+
+</section>
 
 <!-- CTA -->
-<div class="text-center">
-  <button onclick="openModal()"
-    class="bg-accent px-6 py-3 rounded-lg hover:bg-orange-500">
-    Join Now
-  </button>
-</div>
+<section class="py-24 px-6 text-center relative">
 
-<script>
-function openModal() {
-  window.location.href = "index.html";
-}
-</script>
+  <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,146,60,0.14),transparent_70%)]"></div>
+
+  <div class="relative max-w-3xl mx-auto">
+
+    <h2 class="text-4xl font-bold mb-6">
+      Push Your Heart. Push Your Limits.
+    </h2>
+
+    <p class="text-gray-400 mb-8">
+      Join Cardio Blast today and build the endurance and conditioning your body has been missing.
+    </p>
+
+    <button onclick="window.location.href='subscription.html'"
+      class="bg-accent px-8 py-3 rounded-lg font-semibold hover:bg-orange-500 transition">
+      Join Cardio Class
+    </button>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-center p-6 text-gray-500 border-t border-gray-800">
+  <p>© 2026 Connor's Gym. All rights reserved.</p>
+</footer>
 
 </body>
-</html>
+  </html>
