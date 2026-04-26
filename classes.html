@@ -1,73 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Our Classes</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classes - Connor's Gym</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: "#fb923c",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+    }
+  </style>
 </head>
 
-<body class="bg-gray-900 text-white px-6 py-12">
+<body class="bg-gray-950 text-white">
 
-<h1 class="text-4xl font-bold text-center mb-12">Our Classes</h1>
+<!-- NAV -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
 
-<div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-
-  <!-- HIIT -->
-  <div class="bg-gray-800 rounded-xl overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
-      class="w-full h-60 object-cover">
-
-    <div class="p-6">
-      <h2 class="text-2xl font-bold mb-2">HIIT Training</h2>
-      <p class="text-gray-400 mb-4">
-        High-intensity interval training for fat loss and endurance.
-      </p>
-      <a href="hiit.html" class="text-accent underline">Learn More →</a>
-    </div>
+  <div class="space-x-6 hidden md:flex">
+    <a href="index.html">Home</a>
+    <a href="classes.html" class="text-accent">Classes</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="stories.html">Stories</a>
   </div>
 
-  <!-- YOGA -->
-  <div class="bg-gray-800 rounded-xl overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3"
-      class="w-full h-60 object-cover">
+  <a href="auth.html" class="bg-accent px-4 py-2 rounded-lg">Login</a>
+</nav>
 
-    <div class="p-6">
-      <h2 class="text-2xl font-bold mb-2">Yoga Flow</h2>
-      <p class="text-gray-400 mb-4">
-        Improve flexibility, balance, and recovery.
-      </p>
-      <a href="yoga.html" class="text-accent underline">Learn More →</a>
-    </div>
+<!-- HERO -->
+<section class="py-20 text-center px-6">
+  <h1 class="text-5xl font-bold mb-6">Training Classes</h1>
+  <p class="text-gray-400 max-w-2xl mx-auto">
+    Choose a training style that matches your goals. Each program is designed to help you progress with structure, guidance, and results.
+  </p>
+</section>
+
+<!-- CLASS GRID -->
+<section class="pb-24 px-6 max-w-6xl mx-auto">
+
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <!-- HIIT -->
+    <a href="class.html?type=hiit"
+       class="card-hover bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
+
+      <div class="h-72 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
+          class="w-full h-full object-cover scale-105">
+      </div>
+
+      <div class="p-6">
+        <h2 class="text-2xl font-bold text-accent mb-2">HIIT Training</h2>
+        <p class="text-gray-400 mb-4">
+          High-intensity interval training designed for fat loss, endurance, and explosive conditioning.
+        </p>
+        <span class="text-white font-semibold">Explore Class →</span>
+      </div>
+
+    </a>
+
+    <!-- YOGA -->
+    <a href="class.html?type=yoga"
+       class="card-hover bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
+
+      <div class="h-72 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3"
+          class="w-full h-full object-cover scale-105">
+      </div>
+
+      <div class="p-6">
+        <h2 class="text-2xl font-bold text-accent mb-2">Yoga Flow</h2>
+        <p class="text-gray-400 mb-4">
+          Improve flexibility, mobility, and mental clarity through structured flow and breathwork.
+        </p>
+        <span class="text-white font-semibold">Explore Class →</span>
+      </div>
+
+    </a>
+
+    <!-- CARDIO -->
+    <a href="class.html?type=cardio"
+       class="card-hover bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
+
+      <div class="h-72 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1546484959-f9a6c7dcb3c6"
+          class="w-full h-full object-cover scale-105">
+      </div>
+
+      <div class="p-6">
+        <h2 class="text-2xl font-bold text-accent mb-2">Cardio Blast</h2>
+        <p class="text-gray-400 mb-4">
+          Build endurance, burn calories, and strengthen cardiovascular performance.
+        </p>
+        <span class="text-white font-semibold">Explore Class →</span>
+      </div>
+
+    </a>
+
+    <!-- STRENGTH -->
+    <a href="class.html?type=strength"
+       class="card-hover bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
+
+      <div class="h-72 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61"
+          class="w-full h-full object-cover scale-105">
+      </div>
+
+      <div class="p-6">
+        <h2 class="text-2xl font-bold text-accent mb-2">Strength Training</h2>
+        <p class="text-gray-400 mb-4">
+          Build muscle, increase power, and develop structured progressive overload training.
+        </p>
+        <span class="text-white font-semibold">Explore Class →</span>
+      </div>
+
+    </a>
+
   </div>
 
-  <!-- STRENGTH -->
-  <div class="bg-gray-800 rounded-xl overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61"
-      class="w-full h-60 object-cover">
+</section>
 
-    <div class="p-6">
-      <h2 class="text-2xl font-bold mb-2">Strength Training</h2>
-      <p class="text-gray-400 mb-4">
-        Build muscle and increase raw power.
-      </p>
-      <a href="strength.html" class="text-accent underline">Learn More →</a>
-    </div>
-  </div>
-
-  <!-- CARDIO -->
-  <div class="bg-gray-800 rounded-xl overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1546484959-f9a6c7dcb3c6"
-      class="w-full h-60 object-cover">
-
-    <div class="p-6">
-      <h2 class="text-2xl font-bold mb-2">Cardio Blast</h2>
-      <p class="text-gray-400 mb-4">
-        Improve stamina and heart health.
-      </p>
-      <a href="cardio.html" class="text-accent underline">Learn More →</a>
-    </div>
-  </div>
-
-</div>
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-center p-6 text-gray-500 border-t border-gray-800">
+  <p>© 2026 Connor's Gym. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
