@@ -1,45 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>HIIT Training</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yoga Flow - Connor's Gym</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            accent: "#fb923c",
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900 text-white px-6 py-12 max-w-4xl mx-auto">
+<body class="bg-gray-950 text-white">
 
-<a href="classes.html" class="text-accent underline">← Back to Classes</a>
+<!-- NAV -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
 
-<h1 class="text-4xl font-bold my-6">HIIT Training</h1>
+  <div class="space-x-6 hidden md:flex">
+    <a href="index.html">Home</a>
+    <a href="classes.html" class="text-accent">Classes</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="stories.html">Stories</a>
+  </div>
 
-<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
-  class="w-full h-96 object-cover rounded-xl mb-8">
+  <a href="auth.html" class="bg-accent px-4 py-2 rounded-lg">Login</a>
+</nav>
 
-<p class="text-gray-300 mb-6">
-HIIT (High-Intensity Interval Training) is designed to push your limits with short bursts of intense exercise followed by recovery periods.
-</p>
+<!-- HERO -->
+<section class="relative h-[70vh] flex items-center justify-center text-center px-6">
 
-<p class="text-gray-300 mb-6">
-This class helps burn fat quickly, improve cardiovascular health, and build endurance.
-It’s perfect for individuals looking to maximize results in a short amount of time.
-</p>
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3"
+      class="w-full h-full object-cover opacity-40">
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
 
-<p class="text-gray-300 mb-10">
-Whether you're new or experienced, HIIT adapts to your level while constantly challenging you to improve.
-</p>
+  <div class="relative z-10 max-w-3xl">
+    <h1 class="text-5xl font-bold mb-6">
+      Yoga Flow
+    </h1>
+
+    <p class="text-gray-300 text-lg">
+      Improve flexibility, restore balance, and reconnect with your body through guided movement and controlled breathing.
+    </p>
+  </div>
+
+</section>
+
+<!-- WHAT IS YOGA -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-6 text-accent">What is Yoga Flow?</h2>
+
+  <p class="text-gray-300 leading-relaxed mb-6">
+    Yoga Flow is a structured yet calming practice that combines movement, breathing, and mindfulness to improve both physical and mental well-being.
+    It focuses on controlled transitions between poses, helping the body build flexibility, strength, and stability over time.
+  </p>
+
+  <p class="text-gray-300 leading-relaxed">
+    At Connor’s Gym, our Yoga Flow classes are designed to complement high-intensity training programs by promoting recovery,
+    reducing stress, and improving long-term mobility.
+  </p>
+
+</section>
+
+<!-- BENEFITS -->
+<section class="py-20 bg-gray-900 px-6">
+
+  <h2 class="text-3xl font-bold text-center mb-12">Why Members Love Yoga Flow</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Improved Flexibility</h3>
+      <p class="text-gray-400">
+        Increase your range of motion and reduce stiffness through guided stretching and movement.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Stress Reduction</h3>
+      <p class="text-gray-400">
+        Calm your mind through controlled breathing techniques and mindful movement.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Recovery Support</h3>
+      <p class="text-gray-400">
+        Helps your body recover faster from strength and HIIT training sessions.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-8">What You Get in Yoga Flow</h2>
+
+  <ul class="space-y-4 text-gray-300">
+    <li>✔ Guided instructor-led yoga sessions</li>
+    <li>✔ Beginner to advanced adaptable flow sequences</li>
+    <li>✔ Breathing and meditation techniques</li>
+    <li>✔ Mobility and flexibility training</li>
+    <li>✔ Recovery-focused movement routines</li>
+    <li>✔ Calm, supportive environment</li>
+  </ul>
+
+</section>
+
+<!-- TESTIMONIAL STYLE SECTION -->
+<section class="py-20 bg-gray-900 px-6 text-center">
+
+  <h2 class="text-3xl font-bold mb-10">Member Experience</h2>
+
+  <p class="text-gray-400 max-w-2xl mx-auto">
+    “Yoga Flow helped me recover faster from intense workouts and completely changed how my body feels day-to-day. I feel stronger and more balanced.”
+  </p>
+
+  <p class="mt-4 text-accent font-bold">— Connor’s Gym Member</p>
+
+</section>
 
 <!-- CTA -->
-<div class="text-center">
-  <button onclick="openModal()"
-    class="bg-accent px-6 py-3 rounded-lg hover:bg-orange-500">
-    Join Now
-  </button>
-</div>
+<section class="py-24 px-6 text-center relative">
 
-<script>
-function openModal() {
-  window.location.href = "index.html";
-}
-</script>
+  <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,146,60,0.12),transparent_70%)]"></div>
+
+  <div class="relative max-w-3xl mx-auto">
+
+    <h2 class="text-4xl font-bold mb-6">
+      Restore Balance in Your Training
+    </h2>
+
+    <p class="text-gray-400 mb-8">
+      Add Yoga Flow to your routine and unlock better recovery, mobility, and long-term performance.
+    </p>
+
+    <button onclick="window.location.href='subscription.html'"
+      class="bg-accent px-8 py-3 rounded-lg font-semibold hover:bg-orange-500 transition">
+      Join Yoga Class
+    </button>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-center p-6 text-gray-500 border-t border-gray-800">
+  <p>© 2026 Connor's Gym. All rights reserved.</p>
+</footer>
 
 </body>
-</html>
+    </html>
