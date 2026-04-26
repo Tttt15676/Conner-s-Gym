@@ -1,45 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>HIIT Training</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Strength Training - Connor's Gym</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            accent: "#fb923c",
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900 text-white px-6 py-12 max-w-4xl mx-auto">
+<body class="bg-gray-950 text-white">
 
-<a href="classes.html" class="text-accent underline">← Back to Classes</a>
+<!-- NAV -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
 
-<h1 class="text-4xl font-bold my-6">HIIT Training</h1>
+  <div class="space-x-6 hidden md:flex">
+    <a href="index.html">Home</a>
+    <a href="classes.html" class="text-accent">Classes</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="stories.html">Stories</a>
+  </div>
 
-<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
-  class="w-full h-96 object-cover rounded-xl mb-8">
+  <a href="auth.html" class="bg-accent px-4 py-2 rounded-lg">Login</a>
+</nav>
 
-<p class="text-gray-300 mb-6">
-HIIT (High-Intensity Interval Training) is designed to push your limits with short bursts of intense exercise followed by recovery periods.
-</p>
+<!-- HERO -->
+<section class="relative h-[70vh] flex items-center justify-center text-center px-6">
 
-<p class="text-gray-300 mb-6">
-This class helps burn fat quickly, improve cardiovascular health, and build endurance.
-It’s perfect for individuals looking to maximize results in a short amount of time.
-</p>
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61"
+      class="w-full h-full object-cover opacity-40">
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
 
-<p class="text-gray-300 mb-10">
-Whether you're new or experienced, HIIT adapts to your level while constantly challenging you to improve.
-</p>
+  <div class="relative z-10 max-w-3xl">
+    <h1 class="text-5xl font-bold mb-6">
+      Strength Training
+    </h1>
+
+    <p class="text-gray-300 text-lg">
+      Build muscle, increase power, and develop a disciplined training foundation that transforms your physique.
+    </p>
+  </div>
+
+</section>
+
+<!-- WHAT IS STRENGTH TRAINING -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-6 text-accent">What is Strength Training?</h2>
+
+  <p class="text-gray-300 leading-relaxed mb-6">
+    Strength training is a structured method of resistance-based exercise designed to increase muscle mass, improve physical power, 
+    and enhance overall body performance. It focuses on progressive overload—gradually increasing resistance to continuously 
+    challenge the muscles.
+  </p>
+
+  <p class="text-gray-300 leading-relaxed">
+    At Connor’s Gym, strength training is treated as a long-term system, not just a workout. Every session is designed to build 
+    measurable progress in strength, control, and physique development.
+  </p>
+
+</section>
+
+<!-- BENEFITS -->
+<section class="py-20 bg-gray-900 px-6">
+
+  <h2 class="text-3xl font-bold text-center mb-12">Why Members Choose Strength Training</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Muscle Growth</h3>
+      <p class="text-gray-400">
+        Build lean muscle mass through structured resistance training and progressive overload.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Raw Power</h3>
+      <p class="text-gray-400">
+        Increase lifting capacity and overall physical strength across all major muscle groups.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Discipline & Consistency</h3>
+      <p class="text-gray-400">
+        Develop long-term training habits that drive real physical transformation.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TRAINING FOCUS -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-8">Training Focus Areas</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 text-gray-300">
+
+    <div class="bg-gray-900 p-6 rounded-xl">
+      <h3 class="text-accent font-bold mb-2">Compound Lifts</h3>
+      <p>Squats, deadlifts, bench press, and overhead press for maximum strength development.</p>
+    </div>
+
+    <div class="bg-gray-900 p-6 rounded-xl">
+      <h3 class="text-accent font-bold mb-2">Progressive Overload</h3>
+      <p>Structured increases in weight and intensity to ensure continuous muscle growth.</p>
+    </div>
+
+    <div class="bg-gray-900 p-6 rounded-xl">
+      <h3 class="text-accent font-bold mb-2">Form & Control</h3>
+      <p>Technique-driven training to reduce injury risk and maximize efficiency.</p>
+    </div>
+
+    <div class="bg-gray-900 p-6 rounded-xl">
+      <h3 class="text-accent font-bold mb-2">Accessory Work</h3>
+      <p>Targeted exercises to improve weak points and overall muscular balance.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-8">What You Get in Strength Training</h2>
+
+  <ul class="space-y-4 text-gray-300">
+    <li>✔ Structured strength programming</li>
+    <li>✔ Instructor-guided lifting sessions</li>
+    <li>✔ Progressive overload tracking principles</li>
+    <li>✔ Free weight & machine training</li>
+    <li>✔ Hypertrophy-focused workouts</li>
+    <li>✔ Performance coaching environment</li>
+  </ul>
+
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="py-20 bg-gray-900 px-6 text-center">
+
+  <h2 class="text-3xl font-bold mb-10">Member Progress</h2>
+
+  <p class="text-gray-400 max-w-2xl mx-auto">
+    “Strength training at Connor’s Gym completely changed my body. I’ve never been this strong or confident in my physique.”
+  </p>
+
+  <p class="mt-4 text-accent font-bold">— Connor’s Gym Member</p>
+
+</section>
 
 <!-- CTA -->
-<div class="text-center">
-  <button onclick="openModal()"
-    class="bg-accent px-6 py-3 rounded-lg hover:bg-orange-500">
-    Join Now
-  </button>
-</div>
+<section class="py-24 px-6 text-center relative">
 
-<script>
-function openModal() {
-  window.location.href = "index.html";
-}
-</script>
+  <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,146,60,0.12),transparent_70%)]"></div>
+
+  <div class="relative max-w-3xl mx-auto">
+
+    <h2 class="text-4xl font-bold mb-6">
+      Build the Strongest Version of You
+    </h2>
+
+    <p class="text-gray-400 mb-8">
+      Start structured strength training today and unlock real, measurable physical transformation.
+    </p>
+
+    <button onclick="window.location.href='subscription.html'"
+      class="bg-accent px-8 py-3 rounded-lg font-semibold hover:bg-orange-500 transition">
+      Join Strength Class
+    </button>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-center p-6 text-gray-500 border-t border-gray-800">
+  <p>© 2026 Connor's Gym. All rights reserved.</p>
+</footer>
 
 </body>
-</html>
+  </html>
