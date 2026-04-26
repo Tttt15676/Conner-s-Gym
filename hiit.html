@@ -1,45 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>HIIT Training</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HIIT Training - Connor's Gym</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            accent: "#fb923c",
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900 text-white px-6 py-12 max-w-4xl mx-auto">
+<body class="bg-gray-950 text-white">
 
-<a href="classes.html" class="text-accent underline">← Back to Classes</a>
+<!-- NAV -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
 
-<h1 class="text-4xl font-bold my-6">HIIT Training</h1>
+  <div class="space-x-6 hidden md:flex">
+    <a href="index.html">Home</a>
+    <a href="classes.html" class="text-accent">Classes</a>
+    <a href="subscription.html">Subscription</a>
+  </div>
 
-<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
-  class="w-full h-96 object-cover rounded-xl mb-8">
+  <a href="auth.html" class="bg-accent px-4 py-2 rounded-lg">Login</a>
+</nav>
 
-<p class="text-gray-300 mb-6">
-HIIT (High-Intensity Interval Training) is designed to push your limits with short bursts of intense exercise followed by recovery periods.
-</p>
+<!-- HERO -->
+<section class="relative h-[70vh] flex items-center justify-center text-center px-6">
 
-<p class="text-gray-300 mb-6">
-This class helps burn fat quickly, improve cardiovascular health, and build endurance.
-It’s perfect for individuals looking to maximize results in a short amount of time.
-</p>
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e"
+      class="w-full h-full object-cover opacity-40">
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
 
-<p class="text-gray-300 mb-10">
-Whether you're new or experienced, HIIT adapts to your level while constantly challenging you to improve.
-</p>
+  <div class="relative z-10 max-w-3xl">
+    <h1 class="text-5xl font-bold mb-6">
+      HIIT Training
+    </h1>
+
+    <p class="text-gray-300 text-lg">
+      High-intensity interval training designed to burn fat, build endurance, and push your limits in the shortest time possible.
+    </p>
+  </div>
+
+</section>
+
+<!-- WHAT IS HIIT -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-6 text-accent">What is HIIT?</h2>
+
+  <p class="text-gray-300 leading-relaxed mb-6">
+    HIIT (High-Intensity Interval Training) is a fast-paced workout style that alternates between short bursts of intense effort 
+    and periods of recovery. It is designed to maximize calorie burn, improve cardiovascular fitness, and build functional strength 
+    in less time than traditional workouts.
+  </p>
+
+  <p class="text-gray-300 leading-relaxed">
+    At Connor’s Gym, our HIIT classes are structured to push every participant to their personal edge while still being scalable 
+    for beginners and advanced athletes alike.
+  </p>
+
+</section>
+
+<!-- BENEFITS -->
+<section class="py-20 bg-gray-900 px-6">
+
+  <h2 class="text-3xl font-bold text-center mb-12">Why Members Love HIIT</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Fast Fat Loss</h3>
+      <p class="text-gray-400">
+        Burn calories long after your workout ends with afterburn effect training.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Time Efficient</h3>
+      <p class="text-gray-400">
+        Get maximum results in as little as 20–40 minutes per session.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-xl font-bold mb-3 text-accent">Full Body Conditioning</h3>
+      <p class="text-gray-400">
+        Build strength, endurance, and agility in one structured workout.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-8">What You Get in HIIT Classes</h2>
+
+  <ul class="space-y-4 text-gray-300">
+    <li>✔ Guided instructor-led sessions</li>
+    <li>✔ Scalable workouts for all fitness levels</li>
+    <li>✔ Equipment-based & bodyweight circuits</li>
+    <li>✔ Heart-rate focused training zones</li>
+    <li>✔ Fat loss + endurance programming</li>
+    <li>✔ Group motivation environment</li>
+  </ul>
+
+</section>
+
+<!-- TESTIMONIAL STYLE MINI SECTION -->
+<section class="py-20 bg-gray-900 px-6 text-center">
+
+  <h2 class="text-3xl font-bold mb-10">Real Results</h2>
+
+  <p class="text-gray-400 max-w-2xl mx-auto">
+    “HIIT completely changed my fitness level. I lost fat, gained endurance, and finally found workouts I actually enjoy.”
+  </p>
+
+  <p class="mt-4 text-accent font-bold">— Connor’s Gym Member</p>
+
+</section>
 
 <!-- CTA -->
-<div class="text-center">
-  <button onclick="openModal()"
-    class="bg-accent px-6 py-3 rounded-lg hover:bg-orange-500">
-    Join Now
-  </button>
-</div>
+<section class="py-24 px-6 text-center relative">
 
-<script>
-function openModal() {
-  window.location.href = "index.html";
-}
-</script>
+  <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,146,60,0.15),transparent_70%)]"></div>
+
+  <div class="relative max-w-3xl mx-auto">
+
+    <h2 class="text-4xl font-bold mb-6">
+      Ready to Push Your Limits?
+    </h2>
+
+    <p class="text-gray-400 mb-8">
+      Join HIIT training today and start transforming your endurance, strength, and body composition.
+    </p>
+
+    <button onclick="window.location.href='subscription.html'"
+      class="bg-accent px-8 py-3 rounded-lg font-semibold hover:bg-orange-500 transition">
+      Join HIIT Class
+    </button>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-center p-6 text-gray-500 border-t border-gray-800">
+  <p>© 2026 Connor's Gym. All rights reserved.</p>
+</footer>
 
 </body>
-</html>
+      </html>
