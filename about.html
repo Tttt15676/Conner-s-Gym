@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Connor's Gym</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            accent: "#fb923c",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .nav-link {
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #fb923c;
+      text-shadow: 0 0 8px rgba(251,146,60,0.7);
+    }
+    .nav-link:active {
+      transform: scale(0.95);
+      text-shadow: 0 0 14px rgba(251,146,60,1);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-white">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
+
+  <div class="space-x-6 flex">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link text-accent">About</a>
+    <a href="classes.html" class="nav-link">Classes</a>
+    <a href="subscription.html" class="nav-link">Subscription</a>
+    <a href="stories.html" class="nav-link">Stories</a>
+  </div>
+
+  <a href="auth.html" class="bg-accent px-4 py-2 rounded-lg">Login</a>
+</nav>
+
+<!-- HERO -->
+<section class="py-24 px-6 text-center relative">
+
+  <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-950"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+      Built for Strength. Designed for Transformation.
+    </h1>
+
+    <p class="text-gray-400 text-lg">
+      Connor’s Gym is more than a place to work out—it’s where discipline is forged,
+      confidence is built, and limits are broken.
+    </p>
+  </div>
+</section>
+
+<!-- MAIN ABOUT -->
+<section class="py-20 px-6 max-w-5xl mx-auto">
+
+  <div class="space-y-8 text-gray-300 leading-relaxed text-lg">
+
+    <p>
+      Connor’s Gym was created with a clear purpose: to build an environment where people can transform both physically and mentally. 
+      Too many gyms focus only on equipment or aesthetics, but real transformation comes from consistency, guidance, and a powerful 
+      atmosphere that pushes you to improve every single day.
+    </p>
+
+    <p>
+      From the moment you walk in, you’re surrounded by individuals who are committed to growth. Whether you're just starting your 
+      fitness journey or pushing toward elite performance, Connor’s Gym is built to meet you where you are and elevate you to the 
+      next level. Every piece of equipment, every class, and every coaching interaction is designed with intention.
+    </p>
+
+    <p>
+      Our philosophy is simple: results come from structure, discipline, and support. That’s why we focus not just on training, 
+      but on creating a system that helps you stay consistent. Our expert coaches provide real guidance, our community keeps you 
+      accountable, and our facilities give you the tools you need to succeed.
+    </p>
+
+    <p>
+      We believe that fitness is more than just physical change—it’s about becoming stronger in every aspect of your life. 
+      When you train here, you're not just building muscle—you’re building confidence, resilience, and a mindset that carries 
+      into everything you do.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FEATURE HIGHLIGHTS -->
+<section class="py-20 px-6 bg-gray-900">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
+
+    <div class="p-8 rounded-2xl bg-gray-800 shadow-lg">
+      <h3 class="text-2xl font-bold mb-4 text-accent">Elite Coaching</h3>
+      <p class="text-gray-400">
+        Work with experienced trainers who know how to push you safely and effectively toward real results.
+      </p>
+    </div>
+
+    <div class="p-8 rounded-2xl bg-gray-800 shadow-lg">
+      <h3 class="text-2xl font-bold mb-4 text-accent">High-Performance Environment</h3>
+      <p class="text-gray-400">
+        Train in a space designed to motivate, focus, and elevate your performance every session.
+      </p>
+    </div>
+
+    <div class="p-8 rounded-2xl bg-gray-800 shadow-lg">
+      <h3 class="text-2xl font-bold mb-4 text-accent">Real Community</h3>
+      <p class="text-gray-400">
+        Surround yourself with people who are serious about growth and will push you to stay consistent.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 relative">
+
+  <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,146,60,0.12),transparent_70%)]"></div>
+
+  <div class="relative text-center max-w-3xl mx-auto">
+
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Start Your Transformation Today
+    </h2>
+
+    <p class="text-gray-400 mb-10 text-lg">
+      The difference between where you are and where you want to be is action. 
+      Take the first step and commit to your growth.
+    </p>
+
+    <button onclick="window.location.href='index.html'"
+      class="bg-accent px-8 py-3 rounded-lg font-semibold 
+      hover:bg-orange-500 transition duration-300 shadow-lg shadow-orange-500/20">
+      Become a Member
+    </button>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-center p-6 text-gray-500 border-t border-gray-800">
+  <p>© 2026 Connor's Gym. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
