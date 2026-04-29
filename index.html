@@ -524,6 +524,78 @@ function closeModal() {
   document.getElementById("membershipModal").classList.remove("flex");
 }
     </script>
+
+
+<script>
+function openLogin() {
+  document.getElementById("overlay").classList.remove("hidden");
+  document.getElementById("loginModal").classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("overlay").classList.add("hidden");
+  document.getElementById("loginModal").classList.add("hidden");
+  document.getElementById("signupModal").classList.add("hidden");
+}
+
+function switchToSignup() {
+  document.getElementById("loginModal").classList.add("hidden");
+  document.getElementById("signupModal").classList.remove("hidden");
+}
+
+function switchToLogin() {
+  document.getElementById("signupModal").classList.add("hidden");
+  document.getElementById("loginModal").classList.remove("hidden");
+}
+
+/* LOGIN */
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  const res = await fetch("http://localhost:3000/login", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ email, password })
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    localStorage.setItem("token", data.token);
+    closeModal();
+    window.location.href = "dashboard.html";
+  } else {
+    document.getElementById("loginError").innerText = data.message;
+  }
+});
+
+/* SIGNUP */
+document.getElementById("signupForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+
+  const res = await fetch("http://localhost:3000/signup", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ email, password })
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    alert("Account created! Please login.");
+    switchToLogin();
+  } else {
+    document.getElementById("signupError").innerText = data.message;
+  }
+});
+</script>
+  
   
 </body>
     </html>
