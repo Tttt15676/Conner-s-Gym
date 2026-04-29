@@ -1,40 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Membership</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership - Connor's Gym</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: "#fb923c",
+            primary: "#2563eb"
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900 text-white p-10">
+<body class="bg-gray-950 text-white">
 
-<h1 class="text-4xl font-bold mb-8">Your Membership</h1>
+<!-- NAV -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
 
-<div class="bg-gray-800 p-6 rounded-xl max-w-md">
+  <div class="space-x-6 hidden md:flex">
+    <a href="index.html">Home</a>
+    <a href="classes.html">Classes</a>
+    <a href="stories.html">Stories</a>
+    <a href="subscription.html" class="text-accent">Subscription</a>
+  </div>
 
-  <p class="mb-4">Plan: <span id="plan">Loading...</span></p>
-  <p class="mb-4">Status: <span class="text-green-400">Active</span></p>
+  <a href="auth.html" class="bg-accent px-4 py-2 rounded-lg">Login</a>
+</nav>
 
-  <button onclick="cancelPlan()" 
-    class="bg-red-500 px-4 py-2 rounded mb-4">
-    Cancel Membership
-  </button>
+<!-- HERO -->
+<section class="py-20 text-center px-6">
 
-  <button onclick="openModal()" 
-    class="bg-blue-500 px-4 py-2 rounded">
-    Change Plan
-  </button>
+  <h1 class="text-5xl font-bold mb-6">
+    Choose Your Membership
+  </h1>
 
-</div>
+  <p class="text-gray-400 max-w-2xl mx-auto">
+    Flexible plans designed for every level. Train your way with access to world-class facilities,
+    expert coaching, and a results-driven system.
+  </p>
+
+</section>
+
+<!-- PRICING -->
+<section class="pb-24 px-6 max-w-6xl mx-auto">
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- BASIC -->
+    <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+
+      <h2 class="text-2xl font-bold mb-2">Basic</h2>
+      <p class="text-gray-400 mb-6">For casual training</p>
+
+      <p class="text-4xl font-bold mb-6">$19<span class="text-lg text-gray-400">/mo</span></p>
+
+      <ul class="space-y-3 text-gray-400 mb-8">
+        <li>✔ Gym access</li>
+        <li>✔ 1 class per week</li>
+        <li>✔ Locker room access</li>
+      </ul>
+
+      <button onclick="buyPlan('Basic')"
+        class="w-full bg-primary py-3 rounded-lg hover:bg-blue-600 transition">
+        Get Started
+      </button>
+
+    </div>
+
+    <!-- PRO (HIGHLIGHTED) -->
+    <div class="bg-gray-900 p-8 rounded-2xl border-2 border-accent scale-105 relative">
+
+      <div class="absolute top-0 right-0 bg-accent text-black text-xs px-3 py-1 rounded-bl-lg">
+        MOST POPULAR
+      </div>
+
+      <h2 class="text-2xl font-bold mb-2 text-accent">Pro</h2>
+      <p class="text-gray-400 mb-6">Best for consistent progress</p>
+
+      <p class="text-4xl font-bold mb-6">$39<span class="text-lg text-gray-400">/mo</span></p>
+
+      <ul class="space-y-3 text-gray-400 mb-8">
+        <li>✔ Unlimited classes</li>
+        <li>✔ Trainer support</li>
+        <li>✔ Progress tracking</li>
+        <li>✔ All gym access</li>
+      </ul>
+
+      <button onclick="buyPlan('Pro')"
+        class="w-full bg-accent text-black py-3 rounded-lg hover:bg-orange-500 transition">
+        Choose Pro
+      </button>
+
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+
+      <h2 class="text-2xl font-bold mb-2">Premium</h2>
+      <p class="text-gray-400 mb-6">Elite training experience</p>
+
+      <p class="text-4xl font-bold mb-6">$59<span class="text-lg text-gray-400">/mo</span></p>
+
+      <ul class="space-y-3 text-gray-400 mb-8">
+        <li>✔ Personal trainer</li>
+        <li>✔ Nutrition guidance</li>
+        <li>✔ 24/7 access</li>
+        <li>✔ Priority booking</li>
+      </ul>
+
+      <button onclick="buyPlan('Premium')"
+        class="w-full bg-primary py-3 rounded-lg hover:bg-blue-600 transition">
+        Go Premium
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TRUST SECTION -->
+<section class="py-20 bg-gray-900 text-center px-6">
+
+  <h2 class="text-3xl font-bold mb-6">
+    Why Members Stay With Us
+  </h2>
+
+  <p class="text-gray-400 max-w-2xl mx-auto mb-10">
+    Connor’s Gym isn’t just a place to work out—it’s a system designed to help you stay consistent
+    and see real results.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
+
+    <div>
+      <h3 class="text-accent font-bold mb-2">No Contracts</h3>
+      <p class="text-gray-400">Cancel anytime, no long-term commitments.</p>
+    </div>
+
+    <div>
+      <h3 class="text-accent font-bold mb-2">Real Coaching</h3>
+      <p class="text-gray-400">Guidance from experienced trainers.</p>
+    </div>
+
+    <div>
+      <h3 class="text-accent font-bold mb-2">Proven Results</h3>
+      <p class="text-gray-400">Programs designed for real transformation.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAQ -->
+<section class="py-20 px-6 max-w-3xl mx-auto">
+
+  <h2 class="text-3xl font-bold mb-10 text-center">FAQ</h2>
+
+  <div class="space-y-6">
+
+    <div>
+      <h3 class="font-bold text-accent">Can I cancel anytime?</h3>
+      <p class="text-gray-400">Yes, there are no long-term contracts.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-accent">Do I get access immediately?</h3>
+      <p class="text-gray-400">Yes, once payment is complete, your access is instant.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-accent">Can I upgrade later?</h3>
+      <p class="text-gray-400">Absolutely, you can upgrade or downgrade anytime.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 text-center relative">
+
+  <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"></div>
+
+  <div class="relative max-w-3xl mx-auto">
+
+    <h2 class="text-4xl font-bold mb-6">
+      Start Your Transformation Today
+    </h2>
+
+    <p class="text-gray-400 mb-8">
+      Choose your plan and take the first step toward a stronger, healthier version of yourself.
+    </p>
+
+    <button onclick="buyPlan('Pro')"
+      class="bg-accent px-8 py-3 rounded-lg font-semibold hover:bg-orange-500 transition">
+      Get Started Now
+    </button>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-center p-6 text-gray-500 border-t border-gray-800">
+  <p>© 2026 Connor's Gym. All rights reserved.</p>
+</footer>
 
 <script>
-const plan = localStorage.getItem("selectedPlan") || "None";
-document.getElementById("plan").innerText = plan;
+async function buyPlan(plan) {
+  const res = await fetch("http://localhost:3000/create-checkout-session", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ plan })
+  });
 
-function cancelPlan() {
-  localStorage.removeItem("selectedPlan");
-  document.getElementById("plan").innerText = "None";
+  const data = await res.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  }
 }
 </script>
 
 </body>
-</html>
+        </html>
