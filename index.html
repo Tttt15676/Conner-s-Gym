@@ -127,6 +127,70 @@
 
   </div>
 </div>
+  <!-- OVERLAY -->
+<div id="overlay" class="fixed inset-0 bg-black/70 hidden z-40"></div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="fixed inset-0 flex items-center justify-center hidden z-50">
+
+  <div class="bg-gray-900 p-8 rounded-xl w-96 relative">
+
+    <button onclick="closeModal()" class="absolute top-3 right-4 text-gray-400 text-xl">×</button>
+
+    <h2 class="text-2xl mb-6 text-center">Login</h2>
+
+    <form id="loginForm">
+      <input id="loginEmail" type="email" placeholder="Email"
+        class="w-full mb-4 p-2 rounded bg-gray-800">
+
+      <input id="loginPassword" type="password" placeholder="Password"
+        class="w-full mb-4 p-2 rounded bg-gray-800">
+
+      <button class="bg-blue-500 w-full py-2 rounded hover:bg-blue-600">
+        Login
+      </button>
+    </form>
+
+    <p class="text-sm text-gray-400 mt-4 text-center">
+      Don’t have an account?
+      <button onclick="switchToSignup()" class="text-accent">Sign up</button>
+    </p>
+
+    <p id="loginError" class="text-red-400 text-center mt-2"></p>
+
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupModal" class="fixed inset-0 flex items-center justify-center hidden z-50">
+
+  <div class="bg-gray-900 p-8 rounded-xl w-96 relative">
+
+    <button onclick="closeModal()" class="absolute top-3 right-4 text-gray-400 text-xl">×</button>
+
+    <h2 class="text-2xl mb-6 text-center">Sign Up</h2>
+
+    <form id="signupForm">
+      <input id="signupEmail" type="email" placeholder="Email"
+        class="w-full mb-4 p-2 rounded bg-gray-800">
+
+      <input id="signupPassword" type="password" placeholder="Password"
+        class="w-full mb-4 p-2 rounded bg-gray-800">
+
+      <button class="bg-accent w-full py-2 rounded hover:bg-orange-500">
+        Create Account
+      </button>
+    </form>
+
+    <p class="text-sm text-gray-400 mt-4 text-center">
+      Already have an account?
+      <button onclick="switchToLogin()" class="text-accent">Login</button>
+    </p>
+
+    <p id="signupError" class="text-red-400 text-center mt-2"></p>
+
+  </div>
+</div>
 <body class="bg-gray-900 text-white">
 
 <!-- NAVBAR -->
@@ -149,10 +213,9 @@
   </div>
 
   <!-- LOGIN BUTTON -->
-  <a href="auth.html"
-    class="bg-accent px-4 py-2 rounded-lg nav-button">
-    Login
-  </a>
+  <button onclick="openLogin()" class="bg-accent px-4 py-2 rounded">
+  Login
+  </button>
 
 </nav>
 
