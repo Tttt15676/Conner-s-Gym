@@ -480,12 +480,15 @@
 <footer class="bg-gray-800 p-6 text-center text-gray-400">
   <p>© 2026 PulseFit Gym. All rights reserved.</p>
 </footer>
-</script>
-const supabase = supabase.createClient(
-  https://nrxuykdjfptcbmizmskn.supabase.co,
-  sb_secret_EpeLnYFf9FcDV_f8aHe6Sg_PrlKKr7i
+<script>
+const SUPABASE_URL = "https://nrxuykdjfptcbmizmskn.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_SaoSjWbUV6tzWhEfzgD5Mw_VR2vZISe";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
 );
-</script>  
+</script>
   <script>
 let currentSlide = 0;
 const slides = document.querySelectorAll("#carousel img");
