@@ -20,6 +20,14 @@
   </script>
 </head>
 
+  <script>
+  const { data: { user } } = await supabase.auth.getUser();
+
+if (!user) {
+  window.location.href = "index.html";
+}
+  </script>
+  
 <body class="bg-gray-950 text-white">
 
 <!-- NAV -->
