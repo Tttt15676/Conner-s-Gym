@@ -564,21 +564,17 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
 
-  const res = await fetch("http://localhost:3000/login", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ email, password })
-  });
+  const { data, error } = await supabase.auth.signInWithPassword({
+  email,
+  password
+});
 
-  const data = await res.json();
+if (error) {
+  console.log(error.message);
+} else {
+  window.location.href = "dashboard.html";
+}
 
-  if (data.success) {
-    localStorage.setItem("token", data.token);
-    closeModal();
-    window.location.href = "dashboard.html";
-  } else {
-    document.getElementById("loginError").innerText = data.message;
-  }
 });
 
 /* SIGNUP */
@@ -588,20 +584,16 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
 
-  const res = await fetch("http://localhost:3000/signup", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ email, password })
-  });
+const { data, error } = await supabase.auth.signUp({
+  email,
+  password
+});
 
-  const data = await res.json();
-
-  if (data.success) {
-    alert("Account created! Please login.");
-    switchToLogin();
-  } else {
-    document.getElementById("signupError").innerText = data.message;
-  }
+if (error) {
+  console.log(error.message),;
+} else {
+  alert("Account created!");
+}
 });
 </script>
   
