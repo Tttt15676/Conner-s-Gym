@@ -35,6 +35,35 @@ if (!user) {
   
 <body class="bg-gray-950 text-white">
 
+
+
+ 
+
+  <!-- Supabase script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+  <!-- Init -->
+  <script>
+    const supabaseClient = supabase.createClient(
+      "YOUR_URL",
+      "YOUR_ANON_KEY"
+    );
+  </script>
+
+  <!-- Your function -->
+  <script>
+    async function buyPlan(plan) {
+      const { data: { user } } = await supabaseClient.auth.getUser();
+
+      await supabaseClient
+        .from("profiles")
+        .update({ plan })
+        .eq("id", user.id);
+
+      alert("Plan updated to " + plan);
+    }
+  </script>
+
 <!-- NAV -->
 <nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
   <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
