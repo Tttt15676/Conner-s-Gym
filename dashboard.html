@@ -23,6 +23,15 @@
   </button>
 </div>
 
+  <button onclick="logout()">Logout</button>
+
+<script>
+async function logout() {
+  await supabaseClient.auth.signOut();
+  window.location.href = "index.html";
+}
+</script>
+
   <!-- PROGRESS TRACKER -->
 <section class="mt-10 max-w-3xl">
   <h2 class="text-2xl font-bold mb-6">Your Progress</h2>
