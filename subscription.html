@@ -62,7 +62,20 @@ if (!user) {
       alert("Plan updated to " + plan);
     }
   </script>
+  
+<script>
+  const { data } = await supabaseClient
+  .from("profiles")
+  .select("plan")
+  .eq("id", user.id)
+  .single();
 
+if (data.plan === plan) {
+  alert("You already have this plan");
+  return;
+}
+  </script>
+  
 <!-- NAV -->
 <nav class="flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
   <h1 class="text-2xl font-bold text-accent">Connor's Gym</h1>
