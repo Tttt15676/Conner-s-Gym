@@ -68,6 +68,17 @@ app.post("/create-checkout-session", async (req, res) => {
 });
 
 
+const express = require("express");
+const cors = require("cors");
+const Stripe = require("stripe");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+
+
+
 // ======================
 // SIGN UP
 // ======================
