@@ -2,172 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Connor's Gym</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: "#fb923c",
+            primary: "#2563eb"
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900 text-white p-6">
+<body class="bg-gray-950 text-white">
 
-<h1 class="text-3xl mb-6">Dashboard</h1>
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900 border-b border-gray-800">
+  <h1 class="text-xl font-bold text-accent">Connor's Gym</h1>
 
-<div class="bg-gray-800 p-6 rounded-xl max-w-md">
-  <h2 class="text-xl mb-4">Membership Info</h2>
+  <div class="flex items-center gap-6">
+    <span id="userEmail" class="text-gray-400 text-sm"></span>
+    <button onclick="logout()" class="bg-accent px-4 py-2 rounded hover:bg-orange-500">
+      Logout
+    </button>
+  </div>
+</nav>
 
-  <p><strong>Name:</strong> <span id="name"></span></p>
-  <p><strong>Plan:</strong> <span id="plan"></span></p>
-  <p><strong>Renewal Date:</strong> <span id="renewal"></span></p>
+<!-- DASHBOARD -->
+<section class="p-6 max-w-6xl mx-auto">
 
-  <button onclick="logout()" 
-    class="mt-6 bg-red-500 px-4 py-2 rounded hover:bg-red-600">
-    Logout
-  </button>
-</div>
+  <!-- HEADER -->
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold mb-2">Welcome Back</h2>
+    <p class="text-gray-400">Track your progress and manage your membership</p>
+  </div>
 
-  <button onclick="logout()">Logout</button>
+  <!-- STATS -->
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
 
+    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+      <h3 class="text-gray-400 text-sm mb-2">Current Plan</h3>
+      <p id="userPlan" class="text-2xl font-bold text-accent">Loading...</p>
+    </div>
+
+    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+      <h3 class="text-gray-400 text-sm mb-2">Workouts This Week</h3>
+      <p class="text-2xl font-bold">4</p>
+    </div>
+
+    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+      <h3 class="text-gray-400 text-sm mb-2">Classes Booked</h3>
+      <p class="text-2xl font-bold">2</p>
+    </div>
+
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- PROGRESS -->
+    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+      <h3 class="text-xl font-bold mb-4">Progress Tracker</h3>
+      <p class="text-gray-400 mb-4">
+        Track your strength, endurance, and overall fitness improvements.
+      </p>
+
+      <button onclick="window.location.href='progress.html'"
+        class="bg-primary px-4 py-2 rounded hover:bg-blue-600">
+        View Progress
+      </button>
+    </div>
+
+    <!-- CLASSES -->
+    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+      <h3 class="text-xl font-bold mb-4">Upcoming Classes</h3>
+
+      <ul class="text-gray-400 space-y-2 mb-4">
+        <li>HIIT - Monday</li>
+        <li>Yoga - Wednesday</li>
+      </ul>
+
+      <button onclick="window.location.href='classes.html'"
+        class="bg-accent px-4 py-2 rounded hover:bg-orange-500">
+        Book More Classes
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SCRIPT -->
 <script>
+const SUPABASE_URL = "YOUR_URL";
+const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+// 🔐 Protect page
+async function checkUser() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    window.location.href = "index.html";
+    return;
+  }
+
+  // show email
+  document.getElementById("userEmail").innerText = user.email;
+
+  // get profile data
+  const { data } = await supabaseClient
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  document.getElementById("userPlan").innerText = data.plan;
+}
+
+checkUser();
+
+// 🚪 Logout
 async function logout() {
   await supabaseClient.auth.signOut();
   window.location.href = "index.html";
 }
 </script>
 
-  <!-- PROGRESS TRACKER -->
-<section class="mt-10 max-w-3xl">
-  <h2 class="text-2xl font-bold mb-6">Your Progress</h2>
-
-  <!-- Stats Cards -->
-  <div class="grid grid-cols-3 gap-4 mb-8">
-    <div class="bg-gray-800 p-4 rounded-xl text-center">
-      <p class="text-gray-400">Workouts</p>
-      <h3 id="workouts" class="text-2xl font-bold">0</h3>
-    </div>
-
-    <div class="bg-gray-800 p-4 rounded-xl text-center">
-      <p class="text-gray-400">Streak</p>
-      <h3 id="streak" class="text-2xl font-bold">0</h3>
-    </div>
-
-    <div class="bg-gray-800 p-4 rounded-xl text-center">
-      <p class="text-gray-400">Weight Lost</p>
-      <h3 id="weightLost" class="text-2xl font-bold">0 lbs</h3>
-    </div>
-  </div>
-
-  <!-- Progress Bars -->
-  <div class="space-y-6">
-
-    <!-- Strength -->
-    <div>
-      <div class="flex justify-between mb-1">
-        <span>Strength</span>
-        <span id="strengthValue">40%</span>
-      </div>
-      <div class="w-full bg-gray-700 rounded-full h-3">
-        <div id="strengthBar" class="bg-blue-500 h-3 rounded-full" style="width: 40%"></div>
-      </div>
-    </div>
-
-    <!-- Endurance -->
-    <div>
-      <div class="flex justify-between mb-1">
-        <span>Endurance</span>
-        <span id="enduranceValue">30%</span>
-      </div>
-      <div class="w-full bg-gray-700 rounded-full h-3">
-        <div id="enduranceBar" class="bg-orange-500 h-3 rounded-full" style="width: 30%"></div>
-      </div>
-    </div>
-
-    <!-- Consistency -->
-    <div>
-      <div class="flex justify-between mb-1">
-        <span>Consistency</span>
-        <span id="consistencyValue">50%</span>
-      </div>
-      <div class="w-full bg-gray-700 rounded-full h-3">
-        <div id="consistencyBar" class="bg-green-500 h-3 rounded-full" style="width: 50%"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Action Button -->
-  <button onclick="logWorkout()" 
-    class="mt-8 bg-blue-500 px-6 py-2 rounded hover:bg-blue-600">
-    Log Workout
-  </button>
-  </section>
-<script>
-  const { data: { user } } = await supabase.auth.getUser();
-
-if (!user) {
-  window.location.href = "index.html";
-}
-</script>
-
-<script>
-// Redirect if not logged in
-const user = JSON.parse(localStorage.getItem("user"));
-if (!user) {
-  window.location.href = "login.html";
-}
-
-// Load dashboard data
-fetch("http://localhost:3000/dashboard")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("name").innerText = data.name;
-    document.getElementById("plan").innerText = data.plan;
-    document.getElementById("renewal").innerText = data.renewal;
-  });
-
-function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "login.html";
-}
-</script>
-
-<script>
-let data = JSON.parse(localStorage.getItem("progress")) || {
-  workouts: 0,
-  streak: 0,
-  weightLost: 0,
-  strength: 40,
-  endurance: 30,
-  consistency: 50
-};
-
-function updateUI() {
-  document.getElementById("workouts").innerText = data.workouts;
-  document.getElementById("streak").innerText = data.streak;
-  document.getElementById("weightLost").innerText = data.weightLost + " lbs";
-
-  document.getElementById("strengthBar").style.width = data.strength + "%";
-  document.getElementById("strengthValue").innerText = data.strength + "%";
-
-  document.getElementById("enduranceBar").style.width = data.endurance + "%";
-  document.getElementById("enduranceValue").innerText = data.endurance + "%";
-
-  document.getElementById("consistencyBar").style.width = data.consistency + "%";
-  document.getElementById("consistencyValue").innerText = data.consistency + "%";
-}
-
-function logWorkout() {
-  data.workouts += 1;
-  data.streak += 1;
-  data.weightLost += 1;
-
-  data.strength = Math.min(100, data.strength + 2);
-  data.endurance = Math.min(100, data.endurance + 2);
-  data.consistency = Math.min(100, data.consistency + 3);
-
-  localStorage.setItem("progress", JSON.stringify(data));
-  updateUI();
-}
-
-updateUI();
-  </script>
-  
 </body>
-  </html>
+</html>
