@@ -7,12 +7,14 @@
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
 
   <div class="text-center">
-    <h1 class="text-4xl text-green-400 mb-4">Payment Successful 🎉</h1>
-    <p class="mb-6">Welcome to your membership!</p>
+    <h1>Payment Successful 🎉</h1>
+<button onclick="goDashboard()">Go to Dashboard</button>
 
-    <a href="dashboard.html" class="bg-blue-500 px-6 py-3 rounded">
-      Go to Dashboard
-    </a>
+<script>
+async function goDashboard() {
+  window.location.href = "dashboard.html";
+}
+</script>
   </div>
 
 </body>
