@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Connor's Gym</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: "#fb923c",
+            primary: "#2563eb"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-950 text-white">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-900 border-b border-gray-800">
+  <h1 class="text-xl font-bold text-accent">Connor's Gym</h1>
+
+  <div class="flex items-center gap-6">
+    <a href="dashboard.html" class="text-gray-400 hover:text-white">Dashboard</a>
+    <button onclick="logout()" class="bg-accent px-4 py-2 rounded hover:bg-orange-500">
+      Logout
+    </button>
+  </div>
+</nav>
+
+<!-- PROFILE -->
+<section class="max-w-4xl mx-auto p-6">
+
+  <h2 class="text-3xl font-bold mb-8">Your Profile</h2>
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <!-- PROFILE CARD -->
+    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+
+      <h3 class="text-xl font-bold mb-4">Account Info</h3>
+
+      <div class="space-y-4">
+
+        <div>
+          <label class="text-gray-400 text-sm">Email</label>
+          <p id="userEmail" class="text-lg"></p>
+        </div>
+
+        <div>
+          <label class="text-gray-400 text-sm">Current Plan</label>
+          <p id="userPlan" class="text-lg text-accent"></p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- EDIT PROFILE -->
+    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+
+      <h3 class="text-xl font-bold mb-4">Update Profile</h3>
+
+      <input id="nameInput" type="text" placeholder="Full Name"
+        class="w-full mb-4 p-2 rounded bg-gray-800">
+
+      <button onclick="updateProfile()"
+        class="bg-primary px-4 py-2 rounded hover:bg-blue-600 w-full">
+        Save Changes
+      </button>
+
+      <p id="updateMsg" class="text-green-400 mt-3 text-center"></p>
+
+    </div>
+
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+
+    <h3 class="text-xl font-bold mb-4">Account Actions</h3>
+
+    <div class="flex flex-wrap gap-4">
+
+      <button onclick="window.location.href='subscription.html'"
+        class="bg-accent px-4 py-2 rounded hover:bg-orange-500">
+        Manage Subscription
+      </button>
+
+      <button onclick="logout()"
+        class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SCRIPT -->
+<script>
+const SUPABASE_URL = "YOUR_URL";
+const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+// 🔐 Protect page + load data
+async function loadProfile() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    window.location.href = "index.html";
+    return;
+  }
+
+  document.getElementById("userEmail").innerText = user.email;
+
+  const { data } = await supabaseClient
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  document.getElementById("userPlan").innerText = data.plan;
+}
+
+loadProfile();
+
+// ✏️ Update profile
+async function updateProfile() {
+  const name = document.getElementById("nameInput").value;
+
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  await supabaseClient
+    .from("profiles")
+    .update({ name })
+    .eq("id", user.id);
+
+  document.getElementById("updateMsg").innerText = "Profile updated!";
+}
+
+// 🚪 Logout
+async function logout() {
+  await supabaseClient.auth.signOut();
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+    </html>
