@@ -599,14 +599,13 @@ function closeModal() {
 }
     </script>
 
-
 <script>
 function openLogin() {
   document.getElementById("overlay").classList.remove("hidden");
   document.getElementById("loginModal").classList.remove("hidden");
 }
 
-function closeModal() {
+function closeAuthModal() {
   document.getElementById("overlay").classList.add("hidden");
   document.getElementById("loginModal").classList.add("hidden");
   document.getElementById("signupModal").classList.add("hidden");
@@ -622,45 +621,51 @@ function switchToLogin() {
   document.getElementById("loginModal").classList.remove("hidden");
 }
 
-/* LOGIN */
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+/* WAIT FOR PAGE TO LOAD */
+document.addEventListener("DOMContentLoaded", () => {
 
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
+  /* LOGIN */
+  document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-  email,
-  password
-});
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
 
-if (error) {
-  console.log(error.message);
-} else {
-  window.location.href = "dashboard.html";
-}
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
 
-});
+    if (error) {
+      document.getElementById("loginError").textContent = error.message;
+    } else {
+      window.location.href = "dashboard.html";
+    }
+  });
 
-/* SIGNUP */
-document.getElementById("signupForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+  /* SIGNUP */
+  document.getElementById("signupForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const email = document.getElementById("signupEmail").value;
-  const password = document.getElementById("signupPassword").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
 
-const { data, error } = await supabase.auth.signUp({
-  email,
-  password
-});
+    const { data, error } = await supabaseClient.auth.signUp({
+      email,
+      password
+    });
 
-if (error) {
-  console.log(error.message),;
-} else {
-  alert("Account created!");
-}
+    if (error) {
+      document.getElementById("signupError").textContent = error.message;
+    } else {
+      alert("Check your email to confirm your account!");
+    }
+  });
+
 });
 </script>
+
+
   
   
 </body>
